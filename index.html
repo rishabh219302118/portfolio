@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arizonia&family=Baskervville:ital@0;1&family=Bebas+Neue&family=Fleur+De+Leah&family=Great+Vibes&family=Oswald:wght@200..700&family=Yatra+One&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Landing Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Bebas Neue, sans-serif;
+            color: #333;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            
+        }
+
+        .container {
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h1 {
+            font-family: Yatra One;
+            font-size: 4rem;
+            letter-spacing: 2px;
+            background: -webkit-linear-gradient(#000000, #000000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 10px #00000064;
+            transform: translate(10px, -38px);
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+        }
+
+        .tab {
+            position: relative;
+            padding: 1.5rem 3rem;
+            background: rgba(255, 255, 255, 0.8);
+            border: 3px solid #7bf600;
+            border-radius: 15px;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0px 8px 15px rgb(255, 255, 255);
+            transform: translate(0px, -25px);
+        }
+
+        .tab:hover {
+            background: rgb(255, 255, 255);
+            border: 3px solid #00ff40;
+            transform: scale(1.1);
+        }
+
+        /* Circular Image Styling */
+        .profile-photo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #fff;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease-in-out; /* Ensuring the hover transition works */
+            animation: rotate 10s linear infinite, scaleUp 2s ease-in-out infinite alternate, shine 1.5s linear infinite;
+        }
+
+        /* Shine Effect */
+        .profile-photo:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.5);
+            animation: shineEffect 2s infinite;
+            z-index: 1;
+            border-radius: 50%;
+        }
+
+        @keyframes shineEffect {
+            0% {
+                transform: translateX(-100%) rotate(30deg);
+            }
+            50% {
+                transform: translateX(100%) rotate(30deg);
+            }
+            100% {
+                transform: translateX(-100%) rotate(30deg);
+            }
+        }
+
+        /* Animation for Scaling Up */
+        @keyframes scaleUp {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Hover Effect to Increase Size */
+        .profile-photo:hover {
+            transform: scale(2); /* Increase size to 2x on hover */
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Video Background -->
+    <video autoplay muted loop class="background-video">
+        <source src="compressbg.mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="container">
+        <!-- Circular Profile Photo -->
+        <img src="dp.JPG" alt="Profile Photo" class="profile-photo">
+
+        <h1>Welcome to Rishabh's <p class="portfolio" style="font-family: Arizonia; font-size: 120px;">Portfolio</p></h1>
+        <div class="tabs">
+            <div class="tab" onclick="navigate('video-editing')">Video Editing</div>
+            <div class="tab" onclick="navigate('graphic-design')">Graphic Design</div>
+        </div>
+    </div>
+
+    <script>
+        function navigate(section) {
+            if (section === 'video-editing') {
+                window.location.href = 'https://myperspective.my.canva.site/';
+            } else if (section === 'graphic-design') {
+                window.location.href = 'https://www.figma.com/board/kUdWkXLaymWYxnIF6TtQnM/Posters?node-id=6-73&t=YTDrGwN45RgRrjqw-0';
+            }
+        }
+    </script>
+</body>
+</html>

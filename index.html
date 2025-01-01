@@ -1,163 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Arizonia&family=Baskervville:ital@0;1&family=Bebas+Neue&family=Fleur+De+Leah&family=Great+Vibes&family=Oswald:wght@200..700&family=Yatra+One&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creative Landing Page</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rishabh's Portfolio</title>
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('bg.gif') no-repeat center center/cover;
+      background-attachment: fixed;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden; /* Disable scrolling */
+      height: 100vh; /* Constrain height to viewport */
+    }
 
+    /* Video Editing Button Container */
+    .button-container-ve {
+      position: absolute;
+      top: 15%;
+      left: 15%;
+      transform: scale(1.3); /* Apply scale */
+      transform-origin: top left; /* Anchor scaling to top-left */
+    }
+
+    /* Graphics Design Button Container */
+    .button-container-gd {
+      position: absolute;
+      top: 28%;
+      left: 25%;
+      transform: scale(1.3); /* Apply scale */
+      transform-origin: top left; /* Anchor scaling to top-left */
+    }
+
+    .button {
+      display: block;
+      margin: 10px 0px;
+    }
+
+    .button img {
+      width: 250px; /* Adjust width as needed */
+      height: auto;
+      transition: transform 0.3s;
+    }
+
+    .button img:hover {
+      transform: scale(1.1); /* Slight zoom on hover */
+    }
+
+    /* Bottom Text */
+    .bottom-left-text {
+      position: absolute;
+      bottom: 10px;
+      left: 100px;
+      transform: scale(1.5); /* Apply scale */
+    }
+
+    /* Top Right Logo */
+    .top-right-logo {
+      position: absolute;
+      top: -70px;
+      right: 20px;
+      transition: transform 0.3s;
+    }
+    .top-right-logo:hover{
+        transform: scale(1.1); /* Slight zoom on hover */
+    }
+
+    .top-right-logo img {
+      width: 250px; /* Adjust as needed */
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
         body {
-            font-family: Bebas Neue, sans-serif;
-            color: #333;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            position: relative;
-        }
+    background-position:  /* Adjust the position for tablet screens */
+  }
 
-        .background-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-            
-        }
+      .button-container-ve {
+        top: 15%;
+        left: 0%;
+        transform: scale(1);
+        scale: 1.5;
+      }
 
-        .container {
-            text-align: center;
-            animation: fadeIn 1.5s ease-in-out;
-        }
+      .button-container-gd {
+        top: 25%;
+        left: 10%;
+        transform: scale(1);
+        scale: 1.5;
+        transform: translate(0px,50px);
+      }
 
-        h1 {
-            font-family: Yatra One;
-            font-size: 4rem;
-            letter-spacing: 2px;
-            background: -webkit-linear-gradient(#000000, #000000);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 2px 2px 10px #00000064;
-            transform: translate(10px, -38px);
-        }
+      .button img {
+        width: 180px;
+      }
 
-        .tabs {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-        }
+      .bottom-left-text {
+        bottom: 5px;
+        left: 120px;
+        transform: scale(1);
+        scale: 2;
+      }
 
-        .tab {
-            position: relative;
-            padding: 1.5rem 3rem;
-            background: rgba(255, 255, 255, 0.8);
-            border: 3px solid #7bf600;
-            border-radius: 15px;
-            font-size: 2rem;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0px 8px 15px rgb(255, 255, 255);
-            transform: translate(0px, -25px);
-        }
+      .butt{
+        transform: translate(0px,250px);
+      }
 
-        .tab:hover {
-            background: rgb(255, 255, 255);
-            border: 3px solid #00ff40;
-            transform: scale(1.1);
-        }
+      .top-right-logo {
+        left: 250px;
+        top: 10px;
+        scale: 1.5;
+      }
 
-        /* Circular Image Styling */
-        .profile-photo {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid #fff;
-            margin-bottom: 2rem;
-            transition: transform 0.3s ease-in-out; /* Ensuring the hover transition works */
-            animation: rotate 10s linear infinite, scaleUp 2s ease-in-out infinite alternate, shine 1.5s linear infinite;
-        }
+      .top-right-logo img {
+        width: 150px;
+      }
+    }
 
-        /* Shine Effect */
-        .profile-photo:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.5);
-            animation: shineEffect 2s infinite;
-            z-index: 1;
-            border-radius: 50%;
-        }
+    @media (max-width: 480px) {
+        body {
+    background-position: 60%; /* Adjust the position for tablet screens */
+  }
+      
+        .button img {
+        width: 140px;
+        
+      }
 
-        @keyframes shineEffect {
-            0% {
-                transform: translateX(-100%) rotate(30deg);
-            }
-            50% {
-                transform: translateX(100%) rotate(30deg);
-            }
-            100% {
-                transform: translateX(-100%) rotate(30deg);
-            }
-        }
+      .button-container-ve {
+        
+        scale: 2;
+      }
 
-        /* Animation for Scaling Up */
-        @keyframes scaleUp {
-            0% {
-                transform: scale(1);
-            }
-            100% {
-                transform: scale(1.1);
-            }
-        }
+      .button-container-gd {
+        
+        scale: 2;
+      }
 
-        /* Hover Effect to Increase Size */
-        .profile-photo:hover {
-            transform: scale(2); /* Increase size to 2x on hover */
-        }
+      .bottom-left-text {
+        bottom: -10px;
+        left: 90px;
+        
+      }
 
-    </style>
+      .top-right-logo {
+        left: 160px;
+        top: 20px;
+        scale: 2;
+      }
+
+      .top-right-logo img {
+        width: 120px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Video Background -->
-    <video autoplay muted loop class="background-video">
-        <source src="compressbg.mp4">
-        Your browser does not support the video tag.
-    </video>
-
-    <div class="container">
-        <!-- Circular Profile Photo -->
-        <img src="dp.JPG" alt="Profile Photo" class="profile-photo">
-
-        <h1>Welcome to Rishabh's <p class="portfolio" style="font-family: Arizonia; font-size: 120px;">Portfolio</p></h1>
-        <div class="tabs">
-            <div class="tab" onclick="navigate('video-editing')">Video Editing</div>
-            <div class="tab" onclick="navigate('graphic-design')">Graphic Design</div>
-        </div>
-    </div>
-
-    <script>
-        function navigate(section) {
-            if (section === 'video-editing') {
-                window.location.href = 'https://myperspective.my.canva.site/';
-            } else if (section === 'graphic-design') {
-                window.location.href = 'https://www.figma.com/board/kUdWkXLaymWYxnIF6TtQnM/Posters?node-id=6-73&t=YTDrGwN45RgRrjqw-0';
-            }
-        }
-    </script>
+    <div class="butt">
+  <div class="button-container-ve">
+    <a href="https://myperspective.my.canva.site/videoediting" target="_blank" class="button">
+      <img src="video editing.png" alt="Video Editing">
+    </a>
+  </div>
+  
+  <div class="button-container-gd">
+    <a href="https://www.figma.com/board/kUdWkXLaymWYxnIF6TtQnM/Posters?node-id=6-73&t=pf5FoPRaGBZDsVQE-1" target="_blank" class="button">
+      <img src="graphics design.png" alt="Graphic Design">
+    </a>
+  </div>
+</div>
+  
+  <div class="bottom-left-text">
+    <a href="https://example2.com" target="_blank" class="button">
+      <img src="rishabh's portfolio.png" alt="Graphic Design">
+    </a>
+  </div>
+  
+  <div class="top-right-logo">
+    <img src="logo.png" alt="Logo">
+  </div>
 </body>
 </html>
